@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XNOTHING Product Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #f2f5f5;
+      --accent-color: #b1e5f2;
+      --dark-color: #313033;
+      --gray-color: #d4d4d6;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background-color: var(--main-color);
+      color: var(--dark-color);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    @media(min-width: 768px) {
+      .product-wrapper {
+        flex-direction: row;
+      }
+    }
+
+    .gallery {
+      flex: 1;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .details {
+      flex: 1;
+    }
+
+    h1 {
+      font-family: 'Edinburgh', serif;
+      font-size: 2rem;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .size-select, .quantity {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      border: none;
+      padding: 0.8rem 2rem;
+      font-weight: bold;
+      color: var(--dark-color);
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .accordion {
+      margin-top: 2rem;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid var(--gray-color);
+    }
+
+    .accordion-header {
+      padding: 1rem 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .accordion-content {
+      display: none;
+      padding-bottom: 1rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="product-wrapper">
+      <div class="gallery">
+        <img src="product1.jpg" alt="XNOTHING1">
+        <img src="product2.jpg" alt="XNOTHING2">
+        <img src="product3.jpg" alt="XNOTHING3">
+      </div>
+      <div class="details">
+        <h1>XNOTHING1</h1>
+        <div class="price">99,000 VND</div>
+        <div class="description">
+          Thiết kế tối giản kết hợp chi tiết phá cách, tôn lên cá tính hiện đại.
+        </div>
+        <div class="size-select">
+          <label for="size">Size:</label>
+          <select id="size">
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+          </select>
+        </div>
+        <div class="quantity">
+          <label for="qty">Số lượng:</label>
+          <input type="number" id="qty" value="1" min="1" />
+        </div>
+        <button>Thêm vào giỏ</button>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">Chi tiết sản phẩm</div>
+            <div class="accordion-content">
+              Nội dung chi tiết sẽ được cập nhật sau...
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">Vận chuyển & Đổi trả</div>
+            <div class="accordion-content">
+              Nội dung chính sách sẽ được cập nhật sau...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
